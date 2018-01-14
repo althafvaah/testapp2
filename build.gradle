@@ -11,6 +11,7 @@ buildscript {
     }
 }
 
+
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
@@ -26,6 +27,7 @@ repositories {
     // }
 }
 
+def version = system.env.BUILD_NUMBER
 dependencies {
     groovy 'org.codehaus.groovy:groovy-all:2.0.5'
     groovy 'org.apache.ivy:ivy:2.2.0'
@@ -87,21 +89,5 @@ idea {
 
 
 war {
-    baseName = 'myapp'
-}
-
-
-tomcatRunWar {
-    httpPort = 9090
-    stopPort = 9091 
-    //httpsPort = 9091
-    //enableSSL = true
-    //configFile = file('context.xml')
-    contextPath = 'myapp'
-}
-
-tomcatRun {
-    httpPort = 9090
-    stopPort = 9091
-    contextPath = 'myapp'
+    baseName = "myapp.${version}"
 }
