@@ -27,7 +27,7 @@ repositories {
     // }
 }
 
-def version = system.env.BUILD_NUMBER
+def version = System.env.BUILD_NUMBER
 dependencies {
     groovy 'org.codehaus.groovy:groovy-all:2.0.5'
     groovy 'org.apache.ivy:ivy:2.2.0'
